@@ -1,13 +1,13 @@
 package telemetry
 
 import (
-	log "go.uber.org/zap"
+	"go.uber.org/zap"
 )
 
 type LogOptions struct {
-	Stdout bool
+	Zap zap.Config
 }
 
-func newLogConfig(_ LogOptions) log.Config {
-	return log.NewProductionConfig()
+func newLogConfig(options LogOptions) zap.Config {
+	return options.Zap
 }

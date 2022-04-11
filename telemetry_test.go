@@ -6,6 +6,7 @@ import (
 
 	"github.com/fortytw2/leaktest"
 	"github.com/stretchr/testify/require"
+	"go.uber.org/zap"
 
 	"github.com/go-toolbelt/telemetry"
 )
@@ -17,7 +18,7 @@ func Test(t *testing.T) {
 
 	instance := telemetry.New(telemetry.Options{
 		Log: telemetry.LogOptions{
-			Stdout: true,
+			Zap: zap.NewDevelopmentConfig(),
 		},
 		Trace: telemetry.TraceOptions{
 			Stdout: true,
